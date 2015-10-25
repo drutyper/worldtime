@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023170150) do
+ActiveRecord::Schema.define(version: 20151025151630) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "country"
@@ -19,8 +19,11 @@ ActiveRecord::Schema.define(version: 20151023170150) do
     t.float    "long"
     t.string   "wiki"
     t.string   "dst"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "region"
+    t.string   "region_link"
+    t.string   "country_link"
   end
 
 end

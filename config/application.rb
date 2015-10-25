@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 Timezone::Configure.begin do |c|
     c.username = 'drutyper'
 end
+
 module WorldTime
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

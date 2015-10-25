@@ -1,0 +1,17 @@
+<h1>World Time</h1>
+
+<ul>
+  <% @locations.each do |l| %>
+    <li>
+     <%= l.country %>
+     <%= link_to "wikicountry", l.country_link %>
+     <%= l.region  %>
+     <%= link_to "wikiregion", l.region_link %>
+     <%  timezone = Timezone::Zone.new :latlon => [l.lat, l.long] %>
+     <%= timezone.time Time.now %>
+     <% if timezone.dst  %>
+      <%= image_tag "images/daylight" %> 
+     <% end %>
+    </li> 
+  <% end %>  
+</ul>
