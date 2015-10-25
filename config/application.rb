@@ -6,9 +6,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Timezone::Configure.begin do |c|
-    c.username = 'drutyper'
-end
 
 module WorldTime
   class Application < Rails::Application

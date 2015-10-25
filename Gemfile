@@ -15,9 +15,9 @@ gem 'puma'
 gem 'quiet_assets'
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
-gem 'geokit'
+gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'figaro'
-
+gem 'will_paginate'
 group :production do  
   gem 'pg'
 end

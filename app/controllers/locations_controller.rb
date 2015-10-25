@@ -1,6 +1,8 @@
 class LocationsController < ApplicationController
+  
   def index
-    @locations = Location.all 
+    @locations = Location.paginate(:page => params[:page])
+
   end
 
   def new
@@ -9,15 +11,16 @@ class LocationsController < ApplicationController
 
   def create 
     input = "#{params[:region]}, #{params[:country]}"
-    coordinates = Geokit::Geocoders::GeonamesGeocoder.geocode(input)
+    coordinates = Geokit::Geocoders::GoogleGeocoder.geocode(input)
     @location = Location.create!(
       country: params[:country], 
       region: params[:region],
       country_link: Wikilink.new.build(params[:country]),
       region_link:  Wikilink.new.build(params[:region]),
-      lat: input[0],
-      long: input[1]
+      lat: coordinates.lat,
+      long: coordinates.lng
       )
+    redirect_to locations_path
   end
 
   private
